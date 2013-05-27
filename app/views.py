@@ -1,5 +1,5 @@
 from flask import jsonify
-from flask import request, send_from_directory, make_response
+from flask import request, send_from_directory, make_response, redirect, url_for
 import os
 import json
 import csv
@@ -65,7 +65,8 @@ def data():
 		f.close()
 		#generate response
 		jsonR = jsonify(timestamp=timeNow,feedID=feedID,field1=field1,val1=val1)
-		return jsonR
+		#return jsonR
+		return redirect(url_for('plot',feedID=feedID)) 
 	else:
 		return "You can't do that."
 
