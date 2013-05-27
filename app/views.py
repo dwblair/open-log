@@ -157,4 +157,27 @@ def plot(feedID):
 
 @app.route('/')
 def index():
-    return 'Hello!'
+    return "<html> Hello! \
+<br><br> Using FEEDID=3, SOMEVALUE (a floating point number), and SECRETKEY (you have to have a secret key already!) ...<br><br>\
+Try navigating to: \
+<br><br> \
+http://www.open-logger.pvos.org/senddata?feedID=FEEDID&secretKey=SECRETKEY&field1=temp&val1=SOMEVALUE \
+<br><br> \
+And then to: <br><br> \
+http://www.open-logger.pvos.org/data/FEEDID/plot \
+<br><br> \
+You can see all the data here: \
+http://www.open-logger.pvos.org/data/FEEDID/csv \
+<br><br> \
+And you can get the latest data point here (JSON): \
+<br><br> \
+http://www.open-logger.pvos.org/data/FEEDID/csv \
+<br><br> and here (CSV): \
+<br><br> \
+http://www.open-logger.pvos.org/data/FEEDID>csv \
+</html>"
+
+
+
+
+
