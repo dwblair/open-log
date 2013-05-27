@@ -65,8 +65,8 @@ def data():
 		f.close()
 		#generate response
 		jsonR = jsonify(timestamp=timeNow,feedID=feedID,field1=field1,val1=val1)
-		#return jsonR
-		return redirect(url_for('plot',feedID=feedID)) 
+		return jsonR
+		#return redirect(url_for('plot',feedID=feedID)) 
 	else:
 		return "You can't do that."
 
