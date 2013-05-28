@@ -1,4 +1,4 @@
-open-logger
+open-log
 ===========
 
 open source online data logging 
