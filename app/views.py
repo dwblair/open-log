@@ -164,7 +164,7 @@ def index():
 
 @app.route("/data")
 @app.route("/data/<int:ndata>")
-def data(ndata=100):
+def randdata(ndata=100):
     """
     On request, this returns a list of ``ndata`` randomly made data points.
 

@@ -8,29 +8,38 @@
 </head>
 <body class="container">
 <div class="page-header">
-<p><strong>open-log:</strong> an open-source online data logger</p>
+<p><strong>open-log:</strong> an open-source online data logger project.
 </div>
-<div class="well">
-Using FEEDID=3, SOMEVALUE (a floating point number), and SECRETKEY (you have to have a secret key already!) ...<br><br>
-Try navigating to: 
-<br><br> 
-http://www.open-logger.pvos.org/senddata?feedID=FEEDID&secretKey=SECRETKEY&field1=temp&val1=SOMEVALUE 
-<br><br> 
-And then to: <br><br> 
-http://www.open-logger.pvos.org/data/FEEDID/plot 
-<br><br> 
-You can see all the data here: 
-http://www.open-logger.pvos.org/data/FEEDID/csv 
-<br><br> 
-And you can get the latest data point here (JSON): 
-<br><br>
-http://www.open-logger.pvos.org/data/FEEDID/csv 
-<br><br> and here (CSV): 
-<br><br> 
-http://www.open-logger.pvos.org/data/FEEDID>csv 
+
+<div class="hero-unit">
+  <h1>open-log</h1>
+  <p>An open source tool for uploading, storing, and viewing data feeds (typically, time series data) online.  It is based on the <a href="http://flask.pocoo.org/">Flask</a> web microframework.</p>
 </div>
+<b>open-log</b> is currently at a very rudimentary stage. Feeds are currently stored as simple csv files.  We've created an example feed with feedID=3 in order to play with some of the initial features.  <br><br>Please feel free to <a href="https://github.com/dwblair/open-log">fork the code on github</a>, play with it, and add to it! <br><br>
+
+<div class="well"><b>Historical plot</b> <br><br> A feed's history can be plotted via the python matplotlib plotting library by using "http://www.open-logger.pvos.org/data/FEEDID>/plot", where "FEEDID" is the number of the feed.  E.g., for feed 3, you'd use "http://www.open-logger.pvos.org/data3>/plot".   You can try that for feedID=3, <a href="http://www.open-logger.pvos.org/data/3/plot ">here.</a></div>
+
+<div class="well"><b>Historical data</b> <br><br> A feed's history can be downloaded as a ".csv" file, by navigating to "http://www.open-logger.pvos.org/data/FEEDID/csv".  
+
+<br><br>You can try this for feed 3, <a href="http://www.open-logger.pvos.org/data/3/csv">here</a></div>
+
+<div class="well"><b>Most recent data point</b> <br><br>The latest uploaded data point in a feed can be retrieved as JSON or as CSV.
+
+<ul>
+<li>For JSON, use: "http://www.open-logger.pvos.org/data/FEEDID/latest/json" (try that <a href="http://www.open-logger.pvos.org/data/3/latest/json">here</a> for feedId=3). </li>
+
+<li> For CSV, use: "http://www.open-logger.pvos.org/data/FEEDID/latest/csv" (try that <a href="http://www.open-logger.pvos.org/data/3/latest/csv">here</a> for feedId=3). </li>
+</ul>
+ </div>
+
+<!--
+<div class="well"><b>D3 support</b> <br><br>We're playing around with basic D3 support for plotting a ".csv" file. <br><br>A test for dummy data (note: this is NOT the data in the feed=3 data file) is <a href="http://www.open-logger.pvos.org/data/3/plotd3">here</a>.  </div>
+-->
+
 <div class="well">
-Source code is on github <a href="https://github.com/dwblair/open-log">here</a>.
+<b>Uploading data</b> <br><br> A feed can be updated via "http://127.0.0.1:5000/senddata?feedID=FIELDID&secretKey=SECRETKEY&field1=FIELD1&val1=VAL1".  <br><br> You'll need a secret key to do this :)
+</div>
+
 </div>
 </body>
 </html>
