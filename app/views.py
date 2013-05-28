@@ -1,5 +1,7 @@
 from flask import jsonify
-from flask import request, send_from_directory, make_response, redirect, url_for
+from flask import request, send_from_directory, make_response, redirect, url_for, render_template
+from flask import Flask, redirect, Request, g
+
 import os
 import json
 import csv
@@ -157,26 +159,42 @@ def plot(feedID):
 
 @app.route('/')
 def index():
-    return "<html> Hello! \
-<br><br> Using FEEDID=3, SOMEVALUE (a floating point number), and SECRETKEY (you have to have a secret key already!) ...<br><br>\
-Try navigating to: \
-<br><br> \
-http://www.open-logger.pvos.org/senddata?feedID=FEEDID&secretKey=SECRETKEY&field1=temp&val1=SOMEVALUE \
-<br><br> \
-And then to: <br><br> \
-http://www.open-logger.pvos.org/data/FEEDID/plot \
-<br><br> \
-You can see all the data here: \
-http://www.open-logger.pvos.org/data/FEEDID/csv \
-<br><br> \
-And you can get the latest data point here (JSON): \
-<br><br> \
-http://www.open-logger.pvos.org/data/FEEDID/csv \
-<br><br> and here (CSV): \
-<br><br> \
-http://www.open-logger.pvos.org/data/FEEDID>csv \
-</html>"
+    return render_template('index.html')
 
+
+@app.route("/data")
+@app.route("/data/<int:ndata>")
+def data(ndata=100):
+    """
+    On request, this returns a list of ``ndata`` randomly made data points.
+
+    :param ndata: (optional)
+        The number of data points to return.
+
+    :returns data:
+        A JSON string of ``ndata`` data points.
+
+    """
+    x = 10 * np.random.rand(ndata) - 5
+    y = 0.5 * x + 0.5 * np.random.randn(ndata)
+    A = 10. ** np.random.rand(ndata)
+    c = np.random.rand(ndata)
+    return json.dumps([{"_id": i, "x": x[i], "y": y[i], "area": A[i],
+        "color": c[i]}
+        for i in range(ndata)])
+
+
+@app.route("/testScatter")
+def testScatter():
+    return render_template("plotd3_2.html")
+
+@app.route('/data/<feedID>/plotd3')
+def plotd3(feedID):
+	#filename='poop'
+	#uploadFilePath=os.path.join(app.config['UPLOAD_FOLDER'],feedID+'.csv')
+	uploadFilePath=os.path.join(app.config['UPLOAD_FOLDER'],'data.csv')
+	
+	return render_template('plotd3.html', filename='data.csv')
 
 
 
