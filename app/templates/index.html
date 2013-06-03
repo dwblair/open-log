@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Open Log -- An Open Source Data Logger</title>
+    <title>Open Log -- An Open Source Data log</title>
 <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap/css/bootstrap.css') }}" />
 <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/slider.css') }}" />
 
@@ -20,7 +20,7 @@
 Our plan at this point is to build out <b>open-log</b>'s functionality as a logging tool using <a href="http://flask.pocoo.org/">Flask</a>, <a href="http://matplotlib.org/">matplotlib</a>, <a href="http://www.scipy.org/">SciPy</a>, and <a href="http://d3js.org/">D3</a>. <br><br>
 Please feel free to grab the code <a href="https://github.com/dwblair/open-log">on github</a>, play with it, and add to it! <br><br>
 
-<div class="well"><b>Historical plot</b> <br><br> A feed's history can be plotted via the python matplotlib plotting library by using "http://www.open-logger.pvos.org/data/FEEDID>/plot", where "FEEDID" is the number of the feed.  E.g., for feed 3, you'd use "http://www.open-log.pvos.org/data3>/plot".   You can try that for feedID=3, <a href="http://www.open-log.pvos.org/data/3/plot ">here.</a></div>
+<div class="well"><b>Historical plot</b> <br><br> A feed's history can be plotted via the python matplotlib plotting library by using "http://www.open-log.pvos.org/data/FEEDID>/plot", where "FEEDID" is the number of the feed.  E.g., for feed 3, you'd use "http://www.open-log.pvos.org/data3>/plot".   You can try that for feedID=3, <a href="http://www.open-log.pvos.org/data/3/plot ">here.</a></div>
 
 <div class="well"><b>Historical data</b> <br><br> A feed's history can be downloaded as a ".csv" file, by navigating to "http://www.open-log.pvos.org/data/FEEDID/csv".  
 
@@ -29,14 +29,14 @@ Please feel free to grab the code <a href="https://github.com/dwblair/open-log">
 <div class="well"><b>Most recent data point</b> <br><br>The latest uploaded data point in a feed can be retrieved as JSON or as CSV.
 
 <ul>
-<li>For JSON, use: "http://www.open-log.pvos.org/data/FEEDID/latest/json" (try that <a href="http://www.open-logger.pvos.org/data/3/latest/json">here</a> for feedId=3). </li>
+<li>For JSON, use: "http://www.open-log.pvos.org/data/FEEDID/latest/json" (try that <a href="http://www.open-log.pvos.org/data/3/latest/json">here</a> for feedId=3). </li>
 
 <li> For CSV, use: "http://www.open-log.pvos.org/data/FEEDID/latest/csv" (try that <a href="http://www.open-log.pvos.org/data/3/latest/csv">here</a> for feedId=3). </li>
 </ul>
  </div>
 
 <!--
-<div class="well"><b>D3 support</b> <br><br>We're playing around with basic D3 support for plotting a ".csv" file. <br><br>A test for dummy data (note: this is NOT the data in the feed=3 data file) is <a href="http://www.open-logger.pvos.org/data/3/plotd3">here</a>.  </div>
+<div class="well"><b>D3 support</b> <br><br>We're playing around with basic D3 support for plotting a ".csv" file. <br><br>A test for dummy data (note: this is NOT the data in the feed=3 data file) is <a href="http://www.open-log.pvos.org/data/3/plotd3">here</a>.  </div>
 -->
 
 <div class="well">
