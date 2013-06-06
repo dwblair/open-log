@@ -20,7 +20,7 @@
 Our plan at this point is to build out <b>open-log</b>'s functionality as a logging tool using <a href="http://flask.pocoo.org/">Flask</a>, <a href="http://matplotlib.org/">matplotlib</a>, <a href="http://www.scipy.org/">SciPy</a>, and <a href="http://d3js.org/">D3</a>. <br><br>
 Please feel free to grab the code <a href="https://github.com/dwblair/open-log">on github</a>, play with it, and add to it! <br><br>
 
-<div class="well"><b>Historical plot</b> <br><br> A feed's history can be plotted via the python matplotlib plotting library by using "http://www.open-log.pvos.org/data/FEEDID>/plot", where "FEEDID" is the number of the feed.  E.g., for feed 3, you'd use "http://www.open-log.pvos.org/data3>/plot".   You can try that for feedID=3, <a href="http://www.open-log.pvos.org/data/3/plot ">here.</a></div>
+<div class="well"><b>Historical plot</b> <br><br> A feed's history can be plotted via the python matplotlib plotting library by using "http://www.open-log.pvos.org/data/FEEDID>/plot", where "FEEDID" is the number of the feed.  E.g., for feed 3, you'd use "http://www.open-log.pvos.org/data3>/plot".   You can try that for feedID=3, <a href="http://www.open-log.pvos.org/data/3/plot ">here.</a> Note: currently only plots the most recent three data points.  If many hours have elapsed since the last data point, you might need to "seed" the data with a few new data points (see below) in order for the scaling to work out nicely.</div>
 
 <div class="well"><b>Historical data</b> <br><br> A feed's history can be downloaded as a ".csv" file, by navigating to "http://www.open-log.pvos.org/data/FEEDID/csv".  
 
