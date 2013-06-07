@@ -155,7 +155,7 @@ def plot(feedID):
     ymin=ymin-.1*ymin
     ymax=vals.max()
     ymax=ymax+.1*ymax
-    ax.set_xlim([xmin,xmax])
+#    ax.set_xlim([xmin,xmax])
     ax.set_ylim([ymin,ymax])
     ax.legend()
     #ax.plot(vals,'-.')
