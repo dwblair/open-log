@@ -204,10 +204,9 @@ def testScatter():
 def plotd3(feedID):
     #filename='poop'
     #uploadFilePath=os.path.join(app.config['UPLOAD_FOLDER'],feedID+'.csv')
-    uploadFilePath=os.path.join(app.config['UPLOAD_FOLDER'],'data.csv')
+    #uploadFilePath=os.path.join(app.config['UPLOAD_FOLDER'],'data.csv')
     
-    return render_template('plotd3.html', filename='data.csv')
-
+    return render_template('plotd3noob.html', filename='/data/'+str(feedID)+'/csv')
 
 
 tasks = [
