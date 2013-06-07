@@ -148,7 +148,7 @@ def plot(feedID):
     ax.plot(ds,vals,'-o',label=label)
     dslength=len(ds)
 #    print dslength
-    xmin= ds[dslength-8]
+    xmin= ds[dslength-11]
     xmax= ds[dslength-1]
 #    print xmin,xmax
     ymin=vals.min()
