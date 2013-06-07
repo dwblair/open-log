@@ -22,8 +22,9 @@ path {
 <body>
 <script type="text/javascript" src="http://d3js.org/d3.v3.min.js"></script>
 
-<script>
+<script type='text/javascript'>
 
+function draw() {
 var margin = {top: 30, right: 20, bottom: 30, left: 50},
     width = 600 - margin.left - margin.right,
     height = 270 - margin.top - margin.bottom;
@@ -73,7 +74,59 @@ d3.csv("{{filename}}", function(error, data) {
         .attr("class", "y axis")
         .call(yAxis);
 
+
 });
+}
+
+draw();
 
 </script>
+<script>
+function redraw1() {
+
+// Get the data
+d3.csv("{{filename}}", function(error, data) {
+    data.forEach(function(d) {
+        d.date = parseDate(d.date);
+        d.val1 = +d.val1;
+    });
+
+    // Scale the range of the data
+    x.domain(d3.extent(data, function(d) { return d.date; }));
+    y.domain([0, d3.max(data, function(d) { return d.val1; })]);
+
+// Select the section we want to apply our changes to
+    var svg = d3.select("body").transition();
+
+    // Make the changes
+        svg.select(".line")   // change the line
+            .duration(750)
+            .attr("d", valueline(data));
+        svg.select(".x.axis") // change the x axis
+            .duration(750)
+            .call(xAxis);
+        svg.select(".y.axis") // change the y axis
+            .duration(750)
+            .call(yAxis);
+
+    });
+
+}
+
+
+</script>
+
+<script>
+ setInterval(function() {
+redraw1();
+}, 1500);
+</script>
+
+
+<div id="option">
+    <input name="updateButton" 
+                 type="button" 
+                value="Update" 
+                onclick="redraw1()" />
+</div>
 </body>
