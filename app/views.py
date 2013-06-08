@@ -107,8 +107,11 @@ def get_latest_data_from_file_csv(feedID):
     uploadFilePath=os.path.join(app.config['UPLOAD_FOLDER'],feedID+'.csv')
     #data=np.loadtxt(uploadFilePath)
     reader=csv.reader(open(uploadFilePath,"rb"),delimiter=',')
-    x=list(reader)
-
+    reader.next() #skip header line
+    x=[]
+    for row in reader:
+        x.append(row)
+#    x=list(reader)
     lastItem=x[len(x)-1]
     timeStamp=lastItem[0]
     lastField=lastItem[1]
@@ -121,7 +124,11 @@ def plot(feedID):
     uploadFilePath=os.path.join(app.config['UPLOAD_FOLDER'],feedID+'.csv')
     #data=np.loadtxt(uploadFilePath)
     reader=csv.reader(open(uploadFilePath,"rb"),delimiter=',')
-    x=list(reader)
+    reader.next() #skip header line
+    x=[]
+    for row in reader:
+        x.append(row)
+#    x=list(reader)
     a=np.asarray(x)
     label=a[:,1][0] #column heading
     dates=a[:,0]
