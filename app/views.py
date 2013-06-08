@@ -58,6 +58,10 @@ def data():
         dthandler = lambda obj: obj.isoformat() if isinstance(obj, datetime.datetime) else None
         
         uploadFilePath=os.path.join(app.config['UPLOAD_FOLDER'],feedID+'.csv')
+        if os.path.exists(uploadFilePath)==False:
+            f=open(uploadFilePath,'a')
+            f.write('date,field1,val1\n')
+            f.close()
         f=open(uploadFilePath,'a')
         timeNow=datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
